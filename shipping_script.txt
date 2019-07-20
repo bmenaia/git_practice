@@ -1,0 +1,33 @@
+def cost_gs(weight):
+  if weight <= 2:
+    cost = weight * 1.50 + 20.00
+  if 2 < weight <= 6:
+    cost = weight * 3.00 + 20.00
+  if 6 < weight <= 10:
+    cost = weight * 4.00 + 20.00
+  if weight > 10:
+    cost = weight * 4.75 + 20.00
+  return cost
+
+cost_pgs = 125
+
+def cost_ds(weight):
+  if weight <= 2:
+    cost = weight * 4.50 + 0.00
+  if 2 < weight <= 6:
+    cost = weight * 9.00 + 0.00
+  if 6 < weight <= 10:
+    cost = weight * 12.00 + 0.00
+  if weight > 10:
+    cost = weight * 14.25 + 0.00
+  return cost
+
+def cheapest_s(weight):
+  if cost_gs(weight) < cost_pgs and cost_gs(weight) < cost_ds(weight):
+    return print("Ground Shipping --> $" + str(cost_gs(weight)))
+  elif cost_pgs < cost_ds(weight):
+    return print("Premium Ground Shipping --> $" + str(cost_pgs))
+  else:
+    return print("Drone Shipping --> $" + str(cost_ds(weight)))
+ 
+print(cheapest_s(weight))
